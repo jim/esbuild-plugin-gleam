@@ -1,3 +1,5 @@
-import { main } from "./example.gleam"
+import { main } from './main.gleam';
 
-main()
+main();
+
+console.log('hello from js');

@@ -4,12 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node ./build.js"
+    "build": "node ./build.js",
+    "serve": "node ./serve.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "esbuild": "^0.13.12",
     "esbuild-plugin-gleam": "file:../"
-  }
+  },
+  "type": "module",
+  "gleamDependencies": [
+    {
+      "name": "gleam_stdlib",
+      "ref": "main",
+      "url": "https://github.com/gleam-lang/stdlib.git"
+    },
+    {
+      "name": "gleam_javascript",
+      "ref": "main",
+      "url": "https://github.com/gleam-lang/javascript.git",
+      "dependencies": [
+        "gleam_stdlib"
+      ]
+    }
+  ]
 }

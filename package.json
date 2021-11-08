@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/jim/esbuild-plugin-gleam/issues"
   },
-  "homepage": "https://github.com/jim/esbuild-plugin-gleam#readme"
+  "type": "module",
+  "homepage": "https://github.com/jim/esbuild-plugin-gleam#readme",
+  "devDependencies": {
+    "semistandard": "^16.0.1"
+  }
 }
