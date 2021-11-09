@@ -17,6 +17,8 @@ async function readCompiledGleam (projectName, file) {
   return lib + compiled;
 }
 
+const packageName = JSON.parse(await readFile('./package.json')).name;
+
 export const GleamPlugin = ({ debug, pathToGleam: pathToGleam_ } = {}) => ({
   name: 'gleam',
 
@@ -48,8 +50,8 @@ export const GleamPlugin = ({ debug, pathToGleam: pathToGleam_ } = {}) => ({
     build.onLoad({ filter: /.*/, namespace }, async args => {
       const name = basename(args.path, '.gleam');
       try {
-        const contents = await readCompiledGleam('example', `${name}.js`);
-        return { contents, resolveDir: 'target/lib/example' };
+        const contents = await readCompiledGleam(packageName, `${name}.js`);
+        return { contents, resolveDir: join('target', 'lib/', packageName) };
       } catch (e) {
         console.log(e);
         return { errors: [e] };
