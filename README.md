@@ -17,7 +17,7 @@ You'll want to:
     $ npm install https://github.com/jim/esbuild-plugin-gleam
     ```
 
-2. Add the GleamPlugin to your esbuild scripts (check `example/build.js`):
+2. Add the GleamPlugin to your esbuild script (for example, `build.js`):
     ```js
     import esbuild from 'esbuild';
     import { GleamPlugin } from 'esbuild-plugin-gleam';
