@@ -32,7 +32,15 @@ You'll want to:
     }).catch(_e => process.exit(1));
     ```
 
-3. Add the following to the top level of your `package.json` file:
+3. Add the build script to `package.json`:
+
+    ```json
+    "scripts": {
+        "build": "node ./build.js",
+    },
+    ```
+
+4. Add the following to the top level of your `package.json` file:
     ```json
     "gleamDependencies": [
         {
@@ -51,4 +59,4 @@ You'll want to:
     ]
     ```
 
-4. Run `npm run build` to build your project.
+5. Run `npm run build` to build your project.
