@@ -23,12 +23,12 @@ You'll want to:
     import { GleamPlugin } from 'esbuild-plugin-gleam';
 
     esbuild.build({
-    entryPoints: ['src/index.js'],
-    bundle: true,
-    outdir: 'dist',
-    plugins: [
-        GleamPlugin()
-    ]
+        entryPoints: ['src/index.js'],
+        bundle: true,
+        outdir: 'dist',
+        plugins: [
+            GleamPlugin()
+        ]
     }).catch(_e => process.exit(1));
     ```
 
