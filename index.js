@@ -5,7 +5,9 @@ import { exec as callbackExec } from 'child_process';
 const exec = promisify(callbackExec);
 
 const namespace = 'gleam';
-const fileFilter = /\.gleam$/;
+const gleamFileRegex = /\.gleam$/;
+const gleamPackageRegex = /^gleam-packages\//;
+const targetDirPath = resolve('target');
 
 async function readCompiledGleam (projectName, file) {
   const dir = join('target', 'lib', projectName);
@@ -28,13 +30,10 @@ export const GleamPlugin = () => ({
       compiled = exec('node node_modules/esbuild-plugin-gleam/bin/build.js build');
     });
 
-    build.onResolve({ filter: fileFilter }, args => ({
+    build.onResolve({ filter: gleamFileRegex }, args => ({
       path: join(args.resolveDir, args.path),
       namespace
     }));
-
-    const gleamPackageRegex = /^gleam-packages\//;
-    const targetDirPath = resolve('target');
 
     build.onResolve({ filter: gleamPackageRegex }, args => {
       const includePath = args.path.replace(gleamPackageRegex, '');
