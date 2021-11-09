@@ -51,4 +51,4 @@ You'll want to:
     ]
     ```
 
-    4. Run `npm run build` to build your project or `npm run serve` to start a development server.
+4. Run `npm run build` to build your project.
